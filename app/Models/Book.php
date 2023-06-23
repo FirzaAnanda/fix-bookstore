@@ -16,4 +16,9 @@ class Book extends Model
         'price',
         'description'
     ];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

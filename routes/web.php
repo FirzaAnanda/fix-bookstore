@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\admin\BookController;
+use App\Http\Controllers\user\BookUserController;
+use App\Http\Controllers\user\LoginUser;
+use App\Http\Controllers\user\RegisterUser;
+use App\Http\Controllers\user\TransactionUser;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +33,33 @@ Route::patch('admin/{id}', [BookController::class, 'update']);
 Route::delete('admin/{id}/delete', [BookController::class, 'destroy']);
 
 //user
-Route::get('user', [BookController::class, 'dashboard']);
+Route::controller(LoginUser::class)->group(function(){
+    Route::get('user/login','index')->name('user.login');
+    Route::post('user/process','process')->name('user.process');
+    Route::get('user/logout','logout');
+});
+
+Route::controller(RegisterUser::class)->group(function(){
+    Route::get('user/register', 'index');
+    Route::post('user/create', 'create');
+});
+
+// Route::group(['middleware' => ['auth']], function(){
+//     Route::group(['middleware' => ['AuthLogin:user']], function(){
+//         Route::resource('user.index', BookUserController::class);
+//     });
+
+//     Route::group(['middleware' => ['AuthLogin:admin']], function(){
+//         Route::resource('user.index', BookController::class);
+//     });
+// });
+
+
+
+Route::get('user/index', [BookUserController::class, 'index'])->name('user.index');
+
+
+//books
+Route::get('book/{id}', [BookUserController::class, 'show']);
+
+//transactions

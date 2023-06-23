@@ -6,7 +6,7 @@
 
 @section('isi')
 <div class="container-fluid">
-    <h1 class="text-center">See All Books</h1>
+    <h1 class="text-center"> Products</h1>
     <table class="table table-sm table-bordered table-striped">
         <thead>
             <tr>

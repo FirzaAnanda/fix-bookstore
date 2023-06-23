@@ -16,7 +16,7 @@
         <a href="{{url('admin/getAll')}}" class="nav-link">
           <i class="nav-icon fas fa-book"></i>
           <p>
-            See Books
+            Check Products
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>

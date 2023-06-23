@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('book_id');
-            $table->integer('quantity');
-            $table->bigInteger('total_price');
-            $table->dateTime('transaction_date');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('book_id')->constrained('books');
+            $table->string('transaction_code');
+            $table->float('amount');
+            $table->string('status');
             $table->timestamps();
         });
     }
