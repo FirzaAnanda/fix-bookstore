@@ -5,6 +5,7 @@ use App\Http\Controllers\user\BookUserController;
 use App\Http\Controllers\user\LoginUser;
 use App\Http\Controllers\user\RegisterUser;
 use App\Http\Controllers\user\TransactionUser;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,14 @@ use Illuminate\Support\Facades\Route;
 
 // landing page
 Route::get('/', function () {
-    return view('landing-page');
+  return view('landing-page');
 });
+
+Route::get('dashboard', function () {
+  return view('dashboard');
+})->name('dashboard');
+
+Route::resource('users', UserController::class);
 
 //admin
 Route::get('admin', [BookController::class, 'dashboard'])->name('admin.dahsboard');
@@ -33,15 +40,15 @@ Route::patch('admin/{id}', [BookController::class, 'update']);
 Route::delete('admin/{id}/delete', [BookController::class, 'destroy']);
 
 //user
-Route::controller(LoginUser::class)->group(function(){
-    Route::get('user/login','index')->name('user.login');
-    Route::post('user/process','process')->name('user.process');
-    Route::get('user/logout','logout');
+Route::controller(LoginUser::class)->group(function () {
+  Route::get('user/login', 'index')->name('user.login');
+  Route::post('user/process', 'process')->name('user.process');
+  Route::get('user/logout', 'logout');
 });
 
-Route::controller(RegisterUser::class)->group(function(){
-    Route::get('user/register', 'index');
-    Route::post('user/create', 'create');
+Route::controller(RegisterUser::class)->group(function () {
+  Route::get('user/register', 'index');
+  Route::post('user/create', 'create');
 });
 
 // Route::group(['middleware' => ['auth']], function(){
