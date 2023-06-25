@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 // landing page
 Route::get('/', function () {
-    echo "Landing page";
+    return view('landing-page');
 });
 
 //admin
