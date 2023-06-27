@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\admin\BookController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\user\BookUserController;
 use App\Http\Controllers\user\LoginUser;
 use App\Http\Controllers\user\RegisterUser;
@@ -30,14 +30,16 @@ Route::get('dashboard', function () {
 
 Route::resource('users', UserController::class);
 
+Route::resource('books', BookController::class);
+
 //admin
-Route::get('admin', [BookController::class, 'dashboard'])->name('admin.dahsboard');
-Route::get('admin/getAll', [BookController::class, 'getAll'])->name('admin.All');
-Route::get('admin/create', [BookController::class, 'create']);
-Route::post('admin/store', [BookController::class, 'store']);
-Route::get('admin/{id}/edit', [BookController::class, 'edit']);
-Route::patch('admin/{id}', [BookController::class, 'update']);
-Route::delete('admin/{id}/delete', [BookController::class, 'destroy']);
+// Route::get('admin', [BookController::class, 'dashboard'])->name('admin.dahsboard');
+// Route::get('admin/getAll', [BookController::class, 'getAll'])->name('admin.All');
+// Route::get('admin/create', [BookController::class, 'create']);
+// Route::post('admin/store', [BookController::class, 'store']);
+// Route::get('admin/{id}/edit', [BookController::class, 'edit']);
+// Route::patch('admin/{id}', [BookController::class, 'update']);
+// Route::delete('admin/{id}/delete', [BookController::class, 'destroy']);
 
 //user
 Route::controller(LoginUser::class)->group(function () {
@@ -63,10 +65,10 @@ Route::controller(RegisterUser::class)->group(function () {
 
 
 
-Route::get('user/index', [BookUserController::class, 'index'])->name('user.index');
+// Route::get('user/index', [BookUserController::class, 'index'])->name('user.index');
 
 
 //books
-Route::get('book/{id}', [BookUserController::class, 'show']);
+// Route::get('book/{id}', [BookUserController::class, 'show']);
 
 //transactions

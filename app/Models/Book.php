@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'author',
-        'cover',
-        'price',
-        'description'
-    ];
+  protected $fillable = [
+    'title',
+    'author',
+    'cover',
+    'price',
+    'description'
+  ];
 
-    public function transactions()
-    {
-        return $this->hasMany(Transaction::class);
-    }
+  public function transactions()
+  {
+    return $this->hasMany(Transaction::class);
+  }
 }

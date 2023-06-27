@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#ModalCreate">
-  Add User
+  Add Book
 </button>
 
 <!-- Modal Create -->
@@ -9,45 +9,66 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">
-          Add User
+          Add Book
         </h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
       </div>
       <div class="modal-body">
-        <form action="{{ route('users.store') }}" method="POST">
+        <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
           @csrf
-          {{-- Name --}}
+          {{-- Title --}}
           <div class="row mb-3">
             <label class="col-md-3 col-form-label" for="">
-              Name
+              Title
               <span class="text-danger">*</span>
             </label>
             <div class="col-md">
-              <input type="text" name="name" id="" class="form-control" required>
+              <input type="text" name="title" id="" class="form-control" required>
             </div>
           </div>
 
-          {{-- Email --}}
+          {{-- Author --}}
           <div class="row mb-3">
             <label class="col-md-3 col-form-label" for="">
-              Email
+              Author
               <span class="text-danger">*</span>
             </label>
             <div class="col-md">
-              <input type="email" name="email" id="" class="form-control" required>
+              <input type="text" name="author" id="" class="form-control" required>
             </div>
           </div>
 
-          {{-- Password --}}
+          {{-- Price --}}
           <div class="row mb-3">
             <label class="col-md-3 col-form-label" for="">
-              Password
+              Price
               <span class="text-danger">*</span>
             </label>
             <div class="col-md">
-              <input type="password" name="password" id="" class="form-control" required>
+              <input type="text" name="price" id="" class="form-control" required>
             </div>
           </div>
+
+          {{-- Description --}}
+          <div class="row mb-3">
+            <label class="col-md-3 col-form-label" for="">
+              Description
+              <span class="text-danger">*</span>
+            </label>
+            <div class="col-md">
+              <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+          </div>
+
+         {{-- Cover --}}
+         <div class="row mb-3">
+          <label class="col-md-3 col-form-label" for="">
+            Cover
+          </label>
+          <div class="col-md">
+            <input type="file" name="cover" id="" class="form-control">
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">

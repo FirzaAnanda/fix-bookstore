@@ -85,7 +85,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="{{ route('books.index') }}" class="nav-link{{ request()->routeIs('books.*') ? ' active' : '' }}">
       <i class="far fa-circle nav-icon"></i>
       <p>Books</p>
     </a>
