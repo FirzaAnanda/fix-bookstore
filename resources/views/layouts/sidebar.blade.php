@@ -73,7 +73,7 @@
     </ul>
   </li> --}}
   <li class="nav-item">
-    <a href="#" class="nav-link{{ request()->routeIs('dashboard') ? ' active' : '' }}">
+    <a href="{{ route('dashboard') }}" class="nav-link{{ request()->routeIs('dashboard') ? ' active' : '' }}">
       <i class="far fa-circle nav-icon"></i>
       <p>Dashboard</p>
     </a>

@@ -42,16 +42,16 @@ Route::resource('books', BookController::class);
 // Route::delete('admin/{id}/delete', [BookController::class, 'destroy']);
 
 //user
-Route::controller(LoginUser::class)->group(function () {
-  Route::get('user/login', 'index')->name('user.login');
-  Route::post('user/process', 'process')->name('user.process');
-  Route::get('user/logout', 'logout');
-});
+// Route::controller(LoginUser::class)->group(function () {
+//   Route::get('user/login', 'index')->name('user.login');
+//   Route::post('user/process', 'process')->name('user.process');
+//   Route::get('user/logout', 'logout');
+// });
 
-Route::controller(RegisterUser::class)->group(function () {
-  Route::get('user/register', 'index');
-  Route::post('user/create', 'create');
-});
+// Route::controller(RegisterUser::class)->group(function () {
+//   Route::get('user/register', 'index');
+//   Route::post('user/create', 'create');
+// });
 
 // Route::group(['middleware' => ['auth']], function(){
 //     Route::group(['middleware' => ['AuthLogin:user']], function(){
