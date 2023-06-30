@@ -1,10 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\user\BookUserController;
-use App\Http\Controllers\user\LoginUser;
-use App\Http\Controllers\user\RegisterUser;
-use App\Http\Controllers\user\TransactionUser;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,18 +16,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('dashboard', function () {
+//   return view('dashboard');
+// })->name('dashboard');
+
 // landing page
 Route::get('/', function () {
   return view('landing-page');
 });
 
-Route::get('dashboard', function () {
+Route::get('/dashboard', function () {
   return view('dashboard');
-})->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('users', UserController::class);
 
-Route::resource('books', BookController::class);
+Route::middleware('auth')->group(function () {
+  Route::resource('users', UserController::class);
+
+  Route::resource('books', BookController::class);
+
+  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 
 //admin
 // Route::get('admin', [BookController::class, 'dashboard'])->name('admin.dahsboard');
@@ -72,3 +85,5 @@ Route::resource('books', BookController::class);
 // Route::get('book/{id}', [BookUserController::class, 'show']);
 
 //transactions
+
+require __DIR__ . '/auth.php';

@@ -96,4 +96,14 @@
       <p>Transactions</p>
     </a>
   </li>
+  <li class="nav-header">Logout</li>
+  <li class="nav-item">
+    <form action="{{ route('logout') }}" method="POST" id="logout">
+    @csrf
+    <a href="#" onclick="document.getElementById('logout').submit();" class="nav-link">
+      <i class="far fa-circle nav-icon"></i>
+      <p>Logout</p>
+    </a>
+    </form>
+  </li>
 </ul>

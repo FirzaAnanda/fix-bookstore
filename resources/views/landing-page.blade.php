@@ -49,7 +49,7 @@
             <div class="right-element">
               {{-- <a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
               <a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0$)</span></a> --}}
-              <a href="{{ route('user.login') }}" class="btn user-account for-buy"><u>Sign in</u></a>
+              <a href="{{ route('login') }}" class="btn user-account for-buy"><u>Sign in</u></a>
 
               <div class="action-menu">
 
