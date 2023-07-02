@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Users')
+@section('title', 'Transasctions')
 
 @section('content')
 
@@ -9,7 +9,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Users</h1>
+        <h1>Transactions</h1>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
 <section class="content">
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Users</h3>
+      <h3 class="card-title">Transasctions</h3>
       <div class="card-tools">
         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
           <i class="fas fa-minus"></i>
@@ -31,37 +31,26 @@
     </div>
     <div class="card-body">
 
-      @include('users.create')
+      @include('transactions.create')
 
       <table class="table table-striped" id="example">
         <thead>
           <tr>
             <th>No</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Created At</th>
-            <th>Action</th>
+            <th>Transaction Code</th>
+            <th>Book</th>
+            <th>Amount</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($users as $user)
+          @foreach ($transactions as $transaction)
           <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->email }}</td>
-            <td>{{ $user->created_at->format('d-m-Y') }}</td>
-            <td>
-              {{-- <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning"><i class="fas fa-pen"></i></a> --}}
-              @include('users.edit')
-
-            <form action="{{ route('users.destroy', $user->id) }}" class="d-inline" method="POST">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
-                <i class="fas fa-trash"></i>
-              </button>
-            </form>
-            </td>
+            <td>{{ $transaction->transaction_code }}</td>
+            <td>{{ $transaction->book->title }}</td>
+            <td>{{ number_format($transaction->amount) }}</td>
+            <td>{{ $transaction->status }}</td>
           </tr>
           @endforeach
         </tbody>

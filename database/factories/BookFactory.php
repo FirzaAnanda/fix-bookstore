@@ -19,7 +19,7 @@ class BookFactory extends Factory
     return [
       'title' => fake()->name,
       'author' => fake()->name,
-      'cover' => 'images/cover-book.jpg',
+      'cover' => null,
       'price' => fake()->numberBetween(9999, 99999),
       'description' => fake()->words(5, true),
     ];

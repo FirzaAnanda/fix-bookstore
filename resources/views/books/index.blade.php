@@ -33,7 +33,7 @@
 
       @include('books.create')
 
-      <table class="table table-striped">
+      <table class="table table-striped" id="example">
         <thead>
           <tr>
             <th>No</th>
@@ -48,10 +48,10 @@
           @foreach ($books as $book)
           <tr>
             <td>{{ $loop->iteration }}</td>
-            @if ($book->cover != null)
-            <td><img src="/storage/{{ $book->cover }}" width="100px" alt=""></td>
-            @else
+            @if ($book->cover == null)
             <td><img src="{{ asset('dist/img/no-image-available.png') }}" width="100px" alt=""></td>
+            @else
+            <td><img src="/storage/{{ $book->cover }}" width="100px" alt=""></td>
             @endif
             <td>{{ $book->title }}</td>
             <td>{{ $book->author }}</td>
