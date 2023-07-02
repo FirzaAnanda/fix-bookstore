@@ -6,6 +6,7 @@ use App\Http\Requests\StoreTransactionRequest;
 use App\Http\Requests\UpdateTransactionRequest;
 use App\Models\Book;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
@@ -42,7 +43,21 @@ class TransactionController extends Controller
    */
   public function store(StoreTransactionRequest $request)
   {
-    //
+    $generate_code = rand(10000, 999999);
+
+    $priceBook = DB::table('books')->where('id', $request->book_id)->first()->price;
+
+    $asdf = Transaction::query()->create([
+      'transaction_code' => $generate_code,
+      'user_id' => auth()->user()->id,
+      'book_id' => $request->book_id,
+      'order' => $request->order,
+      'amount' => $priceBook * $request->order,
+    ]);
+
+// dd($asdf);
+
+    return back();
   }
 
   /**

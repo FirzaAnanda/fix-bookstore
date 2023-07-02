@@ -12,9 +12,10 @@ class Transaction extends Model
   protected $table = 'transactions';
 
   protected $fillable = [
-    'users_id',
-    'books_id',
     'transaction_code',
+    'user_id',
+    'book_id',
+    'order',
     'amount',
     'status'
   ];

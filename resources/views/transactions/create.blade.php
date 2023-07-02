@@ -17,7 +17,20 @@
         <form action="{{ route('transactions.store') }}" method="POST" enctype="multipart/form-data">
           @csrf
           {{-- Select Book --}}
+          <div class="form-group">
+            <label for="">Select Book</label>
+            <select name="book_id" id="" class="form-control">
+              @foreach ($books as $book)
+              <option value="{{ $book->id }}">{{ $book->author }}, <i>{{ $book->title }}.</i> Rp.{{ number_format($book->price) }}</option>
+              @endforeach
+            </select>
+          </div>
 
+          <!-- Order -->
+          <div class="form-group">
+            <label for="">Order</label>
+            <input type="number" name="order" class="form-control">
+          </div>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">

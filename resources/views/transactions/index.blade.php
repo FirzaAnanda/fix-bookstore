@@ -39,6 +39,7 @@
             <th>No</th>
             <th>Transaction Code</th>
             <th>Book</th>
+            <th>Order</th>
             <th>Amount</th>
             <th>Status</th>
           </tr>
@@ -49,6 +50,7 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $transaction->transaction_code }}</td>
             <td>{{ $transaction->book->title }}</td>
+            <td>{{ $transaction->order }}</td>
             <td>{{ number_format($transaction->amount) }}</td>
             <td>{{ $transaction->status }}</td>
           </tr>

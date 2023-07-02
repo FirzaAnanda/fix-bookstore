@@ -16,8 +16,8 @@ return new class extends Migration
       $table->string('transaction_code');
       $table->bigInteger('user_id')->index();
       $table->bigInteger('book_id')->index();
-      $table->integer('order');
-      $table->decimal('amount', 15, 4);
+      $table->integer('order')->nullable();
+      $table->decimal('amount', 15, 4)->nullable();
       $table->string('status')->nullable();
       $table->timestamps();
     });
