@@ -50,6 +50,7 @@
               {{-- <a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
               <a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0$)</span></a> --}}
               <a href="{{ route('login') }}" class="btn user-account for-buy"><u>Sign in</u></a>
+              <a href="{{ route('register') }}" class="btn user-account for-buy"><u>Sign up</u></a>
 
               <div class="action-menu">
 
@@ -88,8 +89,6 @@
             <nav id="navbar">
               <div class="main-menu stellarnav">
                 <ul class="menu-list">
-                  <li class="menu-item active"><a href="#home" data-effect="Home">Home</a></li>
-                  <li class="menu-item"><a href="#about" class="nav-link" data-effect="About">About</a></li>
                   {{-- <li class="menu-item has-sub">
                     <a href="#pages" class="nav-link" data-effect="Pages">Pages</a>
 
@@ -106,9 +105,8 @@
                     </ul>
 
                   </li> --}}
-                  <li class="menu-item"><a href="#popular-books" class="nav-link" data-effect="Shop">Shop</a></li>
+
                   {{-- <li class="menu-item"><a href="#latest-blog" class="nav-link" data-effect="Articles">Articles</a></li> --}}
-                  <li class="menu-item"><a href="#contact" class="nav-link" data-effect="Contact">Contact</a></li>
                 </ul>
 
                 <div class="hamburger">
@@ -285,7 +283,7 @@
         <div class="col-md-12">
 
           <div class="btn-wrap align-right">
-            <a href="#" class="btn-accent-arrow">View all products <i class="icon icon-ns-arrow-right"></i></a>
+            <a href="{{route('all.books')}}" class="btn-accent-arrow">View all products <i class="icon icon-ns-arrow-right"></i></a>
           </div>
 
         </div>

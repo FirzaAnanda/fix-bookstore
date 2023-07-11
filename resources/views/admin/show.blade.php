@@ -25,6 +25,7 @@
         <td>{{$book->title}}</td>
         <td>{{$book->author}}</td>
         <td><a href="{{url("admin/$book->id/edit")}}" class="btn btn-primary">Edit</a></td>
+
         <td>
           <form method="POST" action="{{ url("admin/$book->id/delete") }}">
             @method('DELETE')

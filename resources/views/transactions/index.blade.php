@@ -37,6 +37,7 @@
         <thead>
           <tr>
             <th>No</th>
+            <th>Cover</th>
             <th>Transaction Code</th>
             <th>Book</th>
             <th>Order</th>
@@ -48,6 +49,7 @@
           @foreach ($transactions as $transaction)
           <tr>
             <td>{{ $loop->iteration }}</td>
+            <td><img src="{{asset('storage/'.$transaction->book->cover)}}" class="img-thumbnail" style="width: 80px"> </td>
             <td>{{ $transaction->transaction_code }}</td>
             <td>{{ $transaction->book->title }}</td>
             <td>{{ $transaction->order }}</td>

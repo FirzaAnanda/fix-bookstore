@@ -95,4 +95,10 @@ class BookController extends Controller
 
     return back();
   }
+
+  public function getBooks()
+  {
+    $data = Book::all();
+    return view('users.all', ['data' => $data]);
+  }
 }

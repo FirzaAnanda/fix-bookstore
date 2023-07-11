@@ -30,10 +30,14 @@ Route::get('/', function () {
   return view('landing-page');
 });
 
+Route::get('booksAll', [BookController::class, 'getBooks'])->name('all.books');
+
 Route::get('/dashboard', function () {
   return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::post('register', [RegisteredUserController::class, 'store']);
 
 Route::middleware('auth')->group(function () {
   Route::resource('users', UserController::class);
